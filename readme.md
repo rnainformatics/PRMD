@@ -2,7 +2,7 @@ The Analysis Pipeline of Peak Calling in Different Plant Species
 
 1 Building work environment
 1.1 The software needs to install
-•	sratoolkit.2. 
+•	sratoolkit.2 
 •	STAR
 •	fastp
 •	samtools
