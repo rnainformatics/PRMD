@@ -1,28 +1,38 @@
-The Analysis Pipeline of Peak Calling in Different Plant Species
+# The Analysis Pipeline of Peak Calling in Different Plant Species
 
-1 Building work environment
-1.1 The software needs to install
-•	sratoolkit.2 
-•	STAR
-•	fastp
-•	samtools
-•	MACS2
-1.2 R and R package
-•	R 4.2
-•	exomePeak2
-1.3 Database
-### take Arabidopsis thaliana as an example
+> The pipeline is developed by  by Lang iaoqiang ([langxiaoqiang@foxmail.com](mailto:mengyuanshen@126.com)). For questions and comments, please contact Lang Xiaoqiang or submit an issue on github.
+
+
+
+### 1 Building work environment
+
+#### 1.1 The software need to install
+
+- sratoolkit.2
+- STAR
+- fastp
+- samtools
+- MACS2
+
+#### 1.2 R and R package
+
+- R 4.2
+- exomePeak2
+
+#### 1.3 Database
+
+
+
+```shell
+## take Arabidopsis thaliana as an example
 ## reference sequence download
 wget https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-57/fasta/arabidopsis_thaliana/cds/Arabidopsis_thaliana.TAIR10.cds.all.fa.gz
-
 ## or deliver tasks to the background server 
 nohup  wget https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-57/fasta/arabidopsis_thaliana/cds/Arabidopsis_thaliana.TAIR10.cds.all.fa.gz &
-
 ## GTF format annotation file download
 wget https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-57/gtf/arabidopsis_thaliana/Arabidopsis_thaliana.TAIR10.57.gtf.gz 
 or
 nohup wget https://ftp.ensemblgenomes.ebi.ac.uk/pub/plants/release-57/gtf/arabidopsis_thaliana/Arabidopsis_thaliana.TAIR10.57.gtf.gz &
-
 ## MeRIP-seq datasets download
 #srrid need to be prepared
 # cat download.sh
@@ -33,7 +43,11 @@ $software_path/sratoolkit.2.11.0-centos_linux64/bin/prefetch $id
 Done
 # run download.sh
 nohup sh download.sh software_path &
-2 Get BAM formatted files 
+```
+
+### 2 Get BAM formatted files
+
+```shell
 ### run get_bam.sh to get BAM formatted files
 sh get_bam.sh species dir_path soft_path
 
@@ -60,7 +74,11 @@ sra2srx_id >>rename_bam_file.sh
 
 ## run rename_bam_file.sh
 sh rename_bam_file.sh
-3 Peak calling use MACS2
+```
+
+### 3 Peak calling use MACS2
+
+```shell
 ### take 12 MeRIP-seq samples of Arabidopsis thaliana as an example
 ## cat id.txt
 IP      Input
@@ -84,8 +102,12 @@ done
 
 ## run macs2.sh
 nohup sh macs2.sh oftware_path &
-4 Peak calling use exomePeak2
-### take 12 MeRIP-seq samples of Arabidopsis thaliana as an example
+```
+
+### 4 Peak calling use exomePeak2
+
+```shell
+## take 12 MeRIP-seq samples of Arabidopsis thaliana as an example
 ## cat id.txt
 IP      Input
 SRX9933630      SRX9933620
@@ -108,12 +130,17 @@ exp_name <- paste0("IP",sample_list[[id]]$IP,"-input",sample_list[[id]]$Input)
 
 ## run exomePeak2.r
 nohup Rscript exomePeak2.r &
-5 Annotation Analysis
+```
+
+### 5 Annotation Analysis
+
 •	This process was already in the RNAmod database, please refer to RNAmod | Home (bioinformatics.sc.cn)
 •	If you use this analysis pipeline, please cite:
 
-Liu, Q. and R.I. Gregory, RNAmod: an integrated system for the annotation of mRNA modifications. Nucleic Acids Res, 2019. 47(W1): p. W548-W555.
-6 Citation
-If you make use of the data and web-server presented here, please cite our PRMD paper (2023) in addition to the primary data sources. 
-The PRMD data files can be freely downloaded and used in accordance with the GNU Public License and the license of primary data sources.
+> Liu, Q. and R.I. Gregory, RNAmod: an integrated system for the annotation of mRNA modifications. Nucleic Acids Res, 2019. 47(W1): p. W548-W555.
 
+### 6 Citation
+
+If you make use of the data and web-server presented here, please **cite our PRMD paper** [**(2023)**](http://61.147.117.195/PRMD/download.php) in addition to the primary data sources. 
+
+The PRMD data files can be freely downloaded and used in accordance with the GNU Public License and the license of primary data sources.
