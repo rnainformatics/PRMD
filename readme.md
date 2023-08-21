@@ -1,6 +1,6 @@
 # The Analysis Pipeline of Peak Calling in Different Plant Species
 
-> The pipeline is developed by  by Lang iaoqiang ([langxiaoqiang@foxmail.com](mailto:mengyuanshen@126.com)). For questions and comments, please contact Lang Xiaoqiang or submit an issue on github.
+> The pipeline is developed by  by Lang Xiaoqiang ([langxiaoqiang@foxmail.com](langxiaoqiang@foxmail.com)). For questions and comments, please contact Lang Xiaoqiang or submit an issue on github.
 
 
 
@@ -134,7 +134,7 @@ nohup Rscript exomePeak2.r &
 
 ### 5 Annotation Analysis
 
-•	This process was already in the RNAmod database, please refer to RNAmod | Home (bioinformatics.sc.cn)
+•	This process was already in the RNAmod database, please refer to RNAmod | [[http://61.147.117.195/PRMD/download.php]    
 •	If you use this analysis pipeline, please cite:
 
 > Liu, Q. and R.I. Gregory, RNAmod: an integrated system for the annotation of mRNA modifications. Nucleic Acids Res, 2019. 47(W1): p. W548-W555.
